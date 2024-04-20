@@ -34,9 +34,7 @@ class ScatterGun(Weapon):
             damage_rolls.append( (randint(1, 10)))
         damage_rolled = list(filter((1).__ne__, damage_rolls))
         damage_total = sum(damage_rolled)
-        print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
-        
-        
+        print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")      
         
 class Pistol(Weapon):
     def __init__(self):
@@ -139,7 +137,6 @@ class GrenadeLauncher(Weapon):
             print(f"Grazing blow: 25 damage | Anyone within 10 feet takes {int(damage_rolled / 2)} ")
         if damage_rolled == damage_possible[3]:
             print(f"You missed! Get a second eye bozo.")
-
         
 class StickyBombLauncher(Weapon):
     def __init__(self):

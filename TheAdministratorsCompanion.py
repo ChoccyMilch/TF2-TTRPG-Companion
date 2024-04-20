@@ -160,6 +160,3 @@ def character_menu():
             print('Invalid character command. Please try again...')
 
 general_menu()
-
-    
-
