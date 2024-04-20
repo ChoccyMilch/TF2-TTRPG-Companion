@@ -10,7 +10,7 @@ valid_character_input = ['scout', 'soldier', 'pyro', 'demoman', 'heavy', 'engine
 valid_weapons_input = ['scattergun close', 'scattergun med', 'pistol close', 'pistol med', 'pistol far', 'rocket launcher', 'rocket', 'shotgun close', 'shotgun med', 'flamethrower', 'grenade launcher','grenade', 'sticky bomb', 'minigun close', 'minigun med', 'sentry 1 close', 'sentry 1 med', 'sentry 2 close', 'sentry 2 med', 'sentry 3 close', 'sentry 3 med',  'syringe gun close','syringe close' ,'syringe gun med','syringe med', 'sniper super close', 'sniper close', 'sniper med', 'sniper charged', 'smg close', 'smg med', 'revolver close', 'revolver med', 'revolver far', 'help weapons', 'back', 'quit']
 
 def general_menu():
-        
+
     print('              _           _       _     _             _             _     _____        _      ')
     print('     /\      | |         (_)     (_)   | |           | |           ( )   |  __ \ /\   | |     ')
     print('    /  \   __| |_ __ ___  _ _ __  _ ___| |_ _ __ __ _| |_ ___  _ __|/ ___| |__) /  \  | |     ')

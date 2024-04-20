@@ -173,14 +173,9 @@ class Minigun(Weapon):
         damage_total = sum(damage_rolled)
         print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
         
-class SentryGun(Weapon):
+class SentryLevel1(Weapon):
     def __init__(self):
-        super().__init__(name='Sentry', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', damage_close='0-25ft: 30 damage', damage_medium='25-30ft: 30 damage', damage_long=False, active_effect='"\n-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range. "', description='A sentry gun.')
-        
-class SentryLevel1(SentryGun):
-    def __init__(self):
-        self.hp = 150
-        super().__init__(name='Sentry level 1', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', damage_close='0-25ft: 30 damage', damage_medium='25-30ft: 30 damage', damage_long=False, active_effect='"\n-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range. "', description='A sentry gun.')
+        super().__init__(name='Sentry level 1', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', damage_close='0-25ft: 30 damage', damage_medium='25-30ft: 30 damage', damage_long=False, active_effect='\n"-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range."\n', description='A sentry gun.')
     
     def shoot_sentry_lvl1_close(self):
         
@@ -192,10 +187,10 @@ class SentryLevel1(SentryGun):
         print(f"The sentry deals 30 damage to the target.")
         print(SentryLevel1().active_effect)
 
-class SentryLevel2(SentryGun):
+class SentryLevel2(Weapon):
     def __init__(self):
         self.hp = 180
-        super().__init__(name='Sentry level 2', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', damage_close='0-25ft: 45 damage', damage_medium='25-30ft: 45 damage', damage_long=False, active_effect='"\n-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range. "', description='A sentry gun.')
+        super().__init__(name='Sentry level 2', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', damage_close='0-25ft: 45 damage', damage_medium='25-30ft: 45 damage', damage_long=False, active_effect='\n"-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range."\n', description='A sentry gun.')
     
     def shoot_sentry_lvl2_close(self):
         
@@ -207,10 +202,10 @@ class SentryLevel2(SentryGun):
         print(f"The sentry deals 45 damage to the target.")
         print(SentryLevel2().active_effect)
         
-class SentryLevel3(SentryGun):
+class SentryLevel3(Weapon):
     def __init__(self):
         self.hp = 216
-        super().__init__(name='Sentry level 3', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='-1 turn to reload 4 rockets', damage_close='0-25ft: 60 damage + 15 damage with rockets', damage_medium='25-35ft: 45 damage + 15 damage with rockets', damage_long=False, active_effect='"\n-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range. "', description='A sentry gun.')
+        super().__init__(name='Sentry level 3', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='-1 turn to reload 4 rockets', damage_close='0-25ft: 60 damage + 15 damage with rockets', damage_medium='25-35ft: 45 damage + 15 damage with rockets', damage_long=False, active_effect='\n"-Targets closest target if multiple are in range\n-Sentries have the same initiative as Engineer. It can also attack as a reaction when someone steps into its range."\n', description='A sentry gun.')
     
     def shoot_sentry_lvl3_close(self):
         
@@ -246,7 +241,7 @@ class SyringeGun(Weapon):
         
 class SniperRifle(Weapon):
     def __init__(self):
-        super().__init__(name='Sniper rifle', current_magazine=1, magazine_size=25, max_magazines='NULL', reload_time='1', damage_close='25-100ft: 1d4', damage_medium='100-150ft: 1d4', damage_long=False, active_effect='"\nCharged Shots\n-Sniper can use a charged shot once per encounter. He rolls a d2 to determine accuracy. d2 = 250 dmg\n-Sniper can not use a bonus action during this turn"\n', description='A sniper rifle.')
+        super().__init__(name='Sniper rifle', current_magazine=1, magazine_size=25, max_magazines='NULL', reload_time='1', damage_close='25-100ft: 1d4', damage_medium='100-150ft: 1d4', damage_long=False, active_effect='\n"Charged Shots\n-Sniper can use a charged shot once per encounter. He rolls a d2 to determine accuracy. d2 = 250 dmg\n-Sniper can not use a bonus action during this turn"\n', description='A sniper rifle.')
     
     def shoot_super_close(self):
         damage_possible = [75, 0, 0]
