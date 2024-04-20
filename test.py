@@ -1,6 +1,5 @@
-import weapons_guns
-import weapons_melee
+import characters
 
-#flamethrower = weapons_guns.Flamethrower().shoot_flamethrower()
+scout = characters.Scout()
 
-#rocketlauncher = weapons_guns.RocketLauncher().shoot_rocket()
+print(scout)

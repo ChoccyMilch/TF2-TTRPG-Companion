@@ -37,6 +37,7 @@ class ScatterGun(Weapon):
         print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
         
         
+        
 class Pistol(Weapon):
     def __init__(self):
         super().__init__(name='Pistol', current_magazine=12, magazine_size=12, max_magazines=3, reload_time=1, damage_close='3d10', damage_medium='3d8', damage_long='3d6', active_effect=False, description='A pistol.')
