@@ -244,7 +244,7 @@ class SniperRifle(Weapon):
         super().__init__(name='Sniper rifle', current_magazine=1, magazine_size=25, max_magazines='NULL', reload_time='1', damage_close='25-100ft: 1d4', damage_medium='100-150ft: 1d4', damage_long=False, active_effect='\n"Charged Shots\n-Sniper can use a charged shot once per encounter. He rolls a d2 to determine accuracy. d2 = 250 dmg\n-Sniper can not use a bonus action during this turn"\n', description='A sniper rifle.')
     
     def shoot_super_close(self):
-        damage_possible = [75, 0, 0]
+        damage_possible = [75, 0, '0']
         damage_rolled = random.choice(damage_possible)
         if damage_rolled == damage_possible[0]:
             print(f"Headshot! You dealt {damage_rolled}damage to your target.")
@@ -256,7 +256,7 @@ class SniperRifle(Weapon):
     
     def shoot_close(self):
         
-        damage_possible = [150, 75, 75, 0]
+        damage_possible = [150, 75, '75', 0]
         damage_rolled = random.choice(damage_possible)
         if damage_rolled == damage_possible[0]:
             print(f"Headshot! You dealt {damage_rolled}damage to your target.")
@@ -269,7 +269,8 @@ class SniperRifle(Weapon):
     
     def shoot_medium(self):
         
-        damage_possible = [100, 35, 35, 0]
+        
+        damage_possible = [100, 35, '35', 0]
         damage_rolled = random.choice(damage_possible)
         if damage_rolled == damage_possible[0]:
             print(f"Headshot! You dealt {damage_rolled}damage to your target.")
