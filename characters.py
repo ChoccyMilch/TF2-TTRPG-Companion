@@ -11,11 +11,8 @@ class Character:
         self.speed = speed
         self.initiative = initiative
         self.prof_bonus = prof_bonus
-        self.description = description
-        
-    
+        self.description = description 
             
-        
 class Scout(Character):
     def __init__(self):
         super().__init__(name='Scout', hp=125, current_hp=125, overheal_max=185, speed='40', initiative=3, prof_bonus=2, description='\n"As the youngest of eight boys from the south side of Boston, the Scout learned early how to solve problems with his fists. With seven older brothers on his side, fights tended to end before the runt of the litter could maneuver into punching distance, so the Scout trained himself to run. He ran everywhere, all the time, until he could beat his pack of mad dog siblings to the fray."\n')

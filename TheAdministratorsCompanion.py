@@ -3,12 +3,16 @@ import weapons_guns
 import characters
 import sys
 
+# Valid menu input  for the startup menu
 valid_input = ['weapons menu', 'character menu', 'help', 'quit']
 
+# Valid menu input for the character menu
 valid_character_input = ['scout', 'soldier', 'pyro', 'demoman', 'heavy', 'engineer', 'medic', 'sniper', 'spy', 'back', 'help characters', 'quit']
 
+# Valid menu input for the weapons menu
 valid_weapons_input = ['scattergun close', 'scattergun med', 'pistol close', 'pistol med', 'pistol far', 'rocket launcher', 'rocket', 'shotgun close', 'shotgun med', 'flamethrower', 'grenade launcher','grenade', 'sticky bomb', 'minigun close', 'minigun med', 'sentry 1 close', 'sentry 1 med', 'sentry 2 close', 'sentry 2 med', 'sentry 3 close', 'sentry 3 med',  'syringe gun close','syringe close' ,'syringe gun med','syringe med', 'sniper super close', 'sniper close', 'sniper med', 'sniper charged', 'smg close', 'smg med', 'revolver close', 'revolver med', 'revolver far', 'help weapons', 'back', 'quit']
 
+# Startup menu
 def general_menu():
 
     print('              _           _       _     _             _             _     _____        _      ')
@@ -22,9 +26,10 @@ def general_menu():
     print('\nWelcome to Administrator\'s PAL! A companion for a custom TTRPG based on the TF2 universe!\nUse \'character menu\', or \'weapons menu\' to start.\nTry \'back\' at any point to be brought back to the mode selection menu at any time\n\n\nAt any point type \'help\' to see a list of valid commands if you get lost!\n')
     print('\n\n\n                 Copyright 2024 - @IAmChoccyMilk. All rights reserved.                  ')
     
-    
+    # User input
     usr_input = input('> ')
     
+    # While user input doesnt match valid_input, loop through these things
     while usr_input != valid_input:
         match usr_input.lower():
             case 'weapons menu':
@@ -40,11 +45,14 @@ def general_menu():
                 print('Invalid input.')
                 usr_input = input('> ')    
 
+# Weapons menu
 def weapons_menu():
         print('\nWelcome to the weapons menu! type \'help weapons\' for valid weapons commands!\n')
-    
+        
+        # User input
         usr_input = input('> ')
-    
+
+        # While usr_input doesnt match valid_weapons_input then loop through these things
         match usr_input.lower():
             case 'scattergun close':
                 print(weapons_guns.ScatterGun().shoot_close())
@@ -116,12 +124,15 @@ def weapons_menu():
             case _:
                 print('Invalid weapon command. Please try again...')  
 
+# Character menu
 def character_menu():
 
     print('\nWelcome to the character menu! type \'help characters\' for valid character commands!\n')
     
+    # User input
     usr_input = input()
     
+    # While usr_input does not match valid_character_input then loop through these things
     match usr_input.lower():
         case 'scout':
             scout = characters.Scout().description
@@ -159,4 +170,5 @@ def character_menu():
         case _:
             print('Invalid character command. Please try again...')
 
+# Startup
 general_menu()
