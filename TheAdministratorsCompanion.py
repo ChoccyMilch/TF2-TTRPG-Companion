@@ -1,5 +1,6 @@
 from random import *
 import weapons_guns
+import weapons_melee
 import characters
 import sys
 
@@ -114,6 +115,8 @@ def weapons_menu():
                 weapons_guns.Revolver().shoot_medium()
             case 'revolver far':
                 weapons_guns.Revolver().shoot_long()
+            case 'bat':
+                weapons_melee.Bat().bat_hit()
             case 'back':
                 general_menu()
                 return False
