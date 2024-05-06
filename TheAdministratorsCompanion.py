@@ -11,7 +11,7 @@ valid_input = ['weapons menu', 'character menu', 'help', 'quit']
 valid_character_input = ['scout', 'soldier', 'pyro', 'demoman', 'heavy', 'engineer', 'medic', 'sniper', 'spy', 'back', 'help characters', 'quit']
 
 # Valid menu input for the weapons menu
-valid_weapons_input = ['scattergun close', 'scattergun med', 'pistol close', 'pistol med', 'pistol far', 'rocket launcher', 'rocket', 'shotgun close', 'shotgun med', 'flamethrower', 'grenade launcher','grenade', 'sticky bomb', 'minigun close', 'minigun med', 'sentry 1 close', 'sentry 1 med', 'sentry 2 close', 'sentry 2 med', 'sentry 3 close', 'sentry 3 med',  'syringe gun close','syringe close' ,'syringe gun med','syringe med', 'sniper super close', 'sniper close', 'sniper med', 'sniper charged', 'smg close', 'smg med', 'revolver close', 'revolver med', 'revolver far', 'help weapons', 'back', 'quit']
+valid_weapons_input = ['scattergun close', 'scattergun med', 'pistol close', 'pistol med', 'pistol far', 'rocket launcher', 'rocket', 'shotgun close', 'shotgun med', 'flamethrower', 'grenade launcher','grenade', 'sticky bomb', 'minigun close', 'minigun med', 'sentry 1 close', 'sentry 1 med', 'sentry 2 close', 'sentry 2 med', 'sentry 3 close', 'sentry 3 med',  'syringe gun close','syringe close' ,'syringe gun med','syringe med', 'sniper super close', 'sniper close', 'sniper med', 'sniper charged', 'smg close', 'smg med', 'revolver close', 'revolver med', 'revolver far', 'shovel', 'bat', 'fire axe', 'bottle', 'bottle reset', 'fists', 'wrench', 'bonesaw', 'kukiri', 'knife', 'help weapons', 'back', 'quit']
 
 # Startup menu
 def general_menu():
@@ -117,6 +117,24 @@ def weapons_menu():
                 weapons_guns.Revolver().shoot_long()
             case 'bat':
                 weapons_melee.Bat().bat_hit()
+            case 'shovel':
+                weapons_melee.Shovel().shovel_hit()
+            case 'fire axe' | 'fireaxe':
+                weapons_melee.FireAxe().fire_axe_hit()
+            case 'bottle':
+                weapons_melee.Bottle().bottle_hit()
+            case 'bottle reset':
+                weapons_melee.Bottle().is_broken_reset()
+            case 'fists':
+                weapons_melee.Fists().fists_hit()
+            case 'wrench':
+                weapons_melee.Wrench().wrench_hit()
+            case 'bonesaw':
+                weapons_melee.Bonesaw().bonesaw_hit()
+            case 'kukiri':
+                weapons_melee.Kukiri().kukiri_hit()
+            case 'knife':
+                weapons_melee.Knife().knife_hit()
             case 'back':
                 general_menu()
                 return False

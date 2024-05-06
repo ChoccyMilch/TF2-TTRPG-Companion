@@ -115,7 +115,7 @@ class Wrench(MeleeWeapon):
     def __init__(self):
         super().__init__(name='Wrench', description='A wrench.', hit_dice='d4', active_affects='N/A')
         
-    def Wrench_hit(self):
+    def wrench_hit(self):
         possible_damage = [0, 10, 20, 30]
         damage_rolled = random.choice(possible_damage)
         if possible_damage == possible_damage[0]:
@@ -133,7 +133,7 @@ class Bonesaw(MeleeWeapon):
     def __init__(self):
         super().__init__(name='Bonesaw', description='A bonesaw. A serrated blade to grind through bone.', hit_dice='d4', active_affects='N/A')
         
-    def Wrench_hit(self):
+    def bonesaw_hit(self):
         possible_damage = [0, 15, 30, 45]
         damage_rolled = random.choice(possible_damage)
         if possible_damage == possible_damage[0]:
@@ -151,7 +151,7 @@ class Kukiri(MeleeWeapon):
     def __init__(self):
         super().__init__(name='Kukiri', description='A kukiri.', hit_dice='d4', active_affects='N/A')
         
-    def Wrench_hit(self):
+    def kukiri_hit(self):
         possible_damage = [0, 15, 30, 45]
         damage_rolled = random.choice(possible_damage)
         if possible_damage == possible_damage[0]:
@@ -169,7 +169,7 @@ class Knife(MeleeWeapon):
     def __init__(self):
         super().__init__(name='Knife', description='A knife.', hit_dice='d4', active_affects='N/A')
         
-    def Wrench_hit(self):
+    def knife_hit(self):
         possible_damage = [0, 25, 50, 75]
         damage_rolled = random.choice(possible_damage)
         if possible_damage == possible_damage[0]:
