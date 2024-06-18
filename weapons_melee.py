@@ -90,7 +90,7 @@ class Bottle(MeleeWeapon):
         if Bottle().is_broken == True:
             Bottle().is_broken = False        
         else:
-            message = 'ITS NOT BROKEN YOU DINGUS!!!'
+            message = 'ITS NOT BROKEN YA DINGUS!!!'
             print(message)
     
 class Fists(MeleeWeapon):
