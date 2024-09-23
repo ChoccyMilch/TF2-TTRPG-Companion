@@ -2,7 +2,7 @@ from random import *
 import random
 
 class Weapon:
-    def __init__(self, name, current_magazine, magazine_size, max_magazines, reload_time, damage_close, damage_medium, damage_long, active_effect, description):
+    def __init__(self, name, current_magazine, magazine_size, max_magazines, reload_time, damage_close, damage_medium, damage_long, last_damage_total, active_effect, description, crit_chance_multiplier, crit_damage_multiplier):
         self.name = name
         self.current_magazine = current_magazine
         self.magazine_size = magazine_size
@@ -11,12 +11,21 @@ class Weapon:
         self.damage_close = damage_close
         self.damage_medium = damage_medium
         self.damage_long = damage_long
+        self.last_damage_total = last_damage_total
         self.active_effect = active_effect
         self.description = description
-
+        self.crit_chance_multiplier = crit_chance_multiplier
+        self.crit_damage_multiplier = crit_damage_multiplier
+        
+        def crit_system(self):
+            self.damage_total * self.crit_damage_multiplier
+            
+            
+            
+     
 class ScatterGun(Weapon):
     def __init__(self):
-        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time=1, damage_close='10d10', damage_medium='10d5', damage_long=False, active_effect=False, description='A scatter gun.')
+        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time=1, damage_close='10d10', damage_medium='10d5', damage_long=False, last_damage_total = 0, active_effect=False, description='A scatter gun.', crit_chance_multiplier=20, crit_damage_multiplier=2)
         
     def shoot_close(self):
         
