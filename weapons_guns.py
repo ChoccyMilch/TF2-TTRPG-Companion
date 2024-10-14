@@ -2,11 +2,12 @@ from random import *
 import random
 
 class Weapon:
-    def __init__(self, name, current_magazine, magazine_size, max_magazines, reload_time, damage_close, damage_medium, damage_long, last_damage_total, active_effect, description, crit_chance_multiplier, crit_damage_multiplier):
+    def __init__(self, name, current_magazine, magazine_size, max_magazines, trigger_pulls, reload_time, damage_close, damage_medium, damage_long, crit_chance, crit_multiplier, crit_offset, last_damage_total, active_effect, description):
         self.name = name
         self.current_magazine = current_magazine
         self.magazine_size = magazine_size
         self.max_magazines = max_magazines
+        self.trigger_pulls = trigger_pulls
         self.reload_time = reload_time
         self.damage_close = damage_close
         self.damage_medium = damage_medium
@@ -14,27 +15,49 @@ class Weapon:
         self.last_damage_total = last_damage_total
         self.active_effect = active_effect
         self.description = description
-        self.crit_chance_multiplier = crit_chance_multiplier
-        self.crit_damage_multiplier = crit_damage_multiplier
+        self.crit_chance = crit_chance
+        self.crit_multiplier = crit_multiplier
+        self.crit_offset = crit_offset
         
-        def crit_system(self):
-            self.damage_total * self.crit_damage_multiplier
+        def attack_close(self):
+            damage_rolls = [] # Initializes an array
+            trigger_pulls
+            crit_roll = randint(crit_chance[0], crit_chance[1])
+            for r in range(trigger_pulls): # Rolls the damage randint 10 times and stores them inside damage_rolls
+                damage_rolls.append( (randint(damage_close[0], damage_close[1])))
+            damage_rolled = list(filter((1).__ne__, damage_rolls)) # Filters and drops all 1's rolled
+            crit_roll
+            damage_total = sum(damage_rolled) # Gets the sum of the filtered array
+            if crit_chance > crit_offset:
+                damage_total * 2 
+                print(f"Rolls: {damage_rolled} | WOW A CRIT! Critical Damage Total:    {damage_total}")
+            else: 
+              print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
+    
+        
+    
             
             
             
      
 class ScatterGun(Weapon):
     def __init__(self):
-        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time=1, damage_close='10d10', damage_medium='10d5', damage_long=False, last_damage_total = 0, active_effect=False, description='A scatter gun.', crit_chance_multiplier=20, crit_damage_multiplier=2)
-        
+        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time=1, damage_close=[1, 10], damage_medium='10d5', damage_long=False, crit_chance=[1, 50], crit_multiplier=2, last_damage_total = 0, active_effect=False, description='A scatter gun.')
+    crit_chance = randint(1, 50)
+    crit_trigger = 47
     def shoot_close(self):
         
         damage_rolls = [] # Initializes an array
         for r in range(10): # Rolls the damage randint 10 times and stores them inside damage_rolls
             damage_rolls.append( (randint(1, 10)))
         damage_rolled = list(filter((1).__ne__, damage_rolls)) # Filters and drops all 1's rolled
+        crit_chance = randint(1, 50)
         damage_total = sum(damage_rolled) # Gets the sum of the filtered array
-        print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
+        if crit_chance > 47:
+            damage_total * 2 
+            print(f"Rolls: {damage_rolled} | WOW A CRIT! Critical Damage Total: {damage_total}")
+        else: 
+            print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
     
     def shoot_medium(self):
         
