@@ -25,7 +25,7 @@ def general_menu():
     print('                                                                                              ')
     print('                                                                                              ')
     print('\nWelcome to Administrator\'s PAL! A companion for a custom TTRPG based on the TF2 universe!\nUse \'character menu\', or \'weapons menu\' to start.\nTry \'back\' at any point to be brought back to the mode selection menu at any time\n\n\nAt any point type \'help\' to see a list of valid commands if you get lost!\n')
-    print('\n\n\n                 Copyright 2024 - @IAmChoccyMilk. All rights reserved.                  ')
+    print('\n\n\n                 Copyright 2024 - @ChoccyMilch. All rights reserved.                  ')
     
     # User input
     usr_input = input('> ')

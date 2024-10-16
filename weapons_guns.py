@@ -49,22 +49,20 @@ class ScatterGun(Weapon):
     def attack_close(self):
         return super().attack_close()
     
-    def shoot_close(self):
-        
-        damage_rolls = [] # Initializes an array
-        for r in range(10): # Rolls the damage randint 10 times and stores them inside damage_rolls
-            damage_rolls.append( (randint(1, 10)))
-        damage_rolled = list(filter((1).__ne__, damage_rolls)) # Filters and drops all 1's rolled
-        crit_chance = randint(1, 50)
-        damage_total = sum(damage_rolled) # Gets the sum of the filtered array
-        if crit_chance > 47:
-            damage_total * 2 
-            print(f"Rolls: {damage_rolled} | WOW A CRIT! Critical Damage Total: {damage_total}")
-        else: 
-            print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
+    ##def shoot_close(self):    
+    #    damage_rolls = [] # Initializes an array
+    #   for r in range(10): # Rolls the damage randint 10 times and stores them inside damage_rolls
+    #        damage_rolls.append( (randint(1, 10)))
+    #    damage_rolled = list(filter((1).__ne__, damage_rolls)) # Filters and drops all 1's rolled
+    #    crit_chance = randint(1, 50)
+    #    damage_total = sum(damage_rolled) # Gets the sum of the filtered array
+    #    if crit_chance > 47:
+    #        damage_total * 2 
+    #        print(f"Rolls: {damage_rolled} | WOW A CRIT! Critical Damage Total: {damage_total}")
+    #    else: 
+    #        print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
     
-    def shoot_medium(self):
-        
+    def shoot_medium(self):  
         damage_rolls = [] # Initializes an array
         for r in range(5): # Rolls the damage randint 5 times and stores them inside damage_rolls
             damage_rolls.append( (randint(1, 10))) # Filters and drops all 1's rolled

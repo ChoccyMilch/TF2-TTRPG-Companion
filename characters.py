@@ -3,7 +3,7 @@ from typing import Any
 
 
 class Character:
-    def __init__(self, name, hp, current_hp, overheal_max, speed, initiative , prof_bonus, description):
+    def __init__(self, name, hp, current_hp, overheal_max, speed, initiative , prof_bonus, description, strength, dexterity, constitution, intelligence, wisdom, charisma, abilities):
         self.name = name
         self.hp = hp
         self.current_hp = current_hp
@@ -11,7 +11,20 @@ class Character:
         self.speed = speed
         self.initiative = initiative
         self.prof_bonus = prof_bonus
-        self.description = description 
+        self.description = description
+        self.strength = strength
+        self.dexterity = dexterity
+        self.constitution = constitution
+        self.intelligence = intelligence
+        self.wisdom = wisdom
+        self.charisma = charisma
+        self.abilities = abilities
+    
+    def list_ability_scores(self):
+        print(f"\n--{self.name} Ability Scores--\nStrength: {self.strength}\nDexterity: {self.dexterity}\nConstitution: {self.constitution}\nIntelligence: {self.intelligence}\nWisdom: {self.wisdom}\nCharisma: {self.charisma}\n")
+    
+    def list_ablilities(self): ### WORK IN PROGRESS!!!
+        print(self.abilities)
             
 class Scout(Character):
     def __init__(self):
