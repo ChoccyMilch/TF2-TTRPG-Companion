@@ -19,21 +19,23 @@ class Weapon:
         self.crit_multiplier = crit_multiplier
         self.crit_offset = crit_offset
         
-        def attack_close(self):
-            damage_rolls = [] # Initializes an array
-            trigger_pulls
-            crit_roll = randint(crit_chance[0], crit_chance[1])
-            for r in range(trigger_pulls): # Rolls the damage randint 10 times and stores them inside damage_rolls
-                damage_rolls.append( (randint(damage_close[0], damage_close[1])))
-            damage_rolled = list(filter((1).__ne__, damage_rolls)) # Filters and drops all 1's rolled
-            crit_roll
-            damage_total = sum(damage_rolled) # Gets the sum of the filtered array
-            if crit_chance > crit_offset:
-                damage_total * 2 
-                print(f"Rolls: {damage_rolled} | WOW A CRIT! Critical Damage Total:    {damage_total}")
-            else: 
-              print(f"Rolls: {damage_rolled} | Damage Total: {damage_total}")
-    
+    def attack_close(self):
+        self.damage_rolls = [] # Initializes an array
+        
+        self.crit_roll = randint(self.crit_chance[0], self.crit_chance[1])
+        for r in range(self.trigger_pulls): # Rolls the damage randint 10 times and stores them inside damage_rolls
+            self.damage_rolls.append( (randint(self.damage_close[0], self.damage_close[1])))
+        self.damage_rolled = list(filter((1).__ne__, self.damage_rolls)) # Filters and drops all 1's rolled
+        self.crit_roll
+        self.damage_total = sum(self.damage_rolled) # Gets the sum of the filtered array
+        if self.crit_roll > self.crit_offset:
+            self.damage_total * self.crit_multiplier 
+            return print(f"Rolls: {self.damage_rolled} | WOW A CRIT! Critical Damage Total: {self.damage_total}")
+        else:
+            return print(f"Rolls: {self.damage_rolled} | Damage Total: {self.damage_total}")
+        
+            
+            
         
     
             
@@ -42,9 +44,11 @@ class Weapon:
      
 class ScatterGun(Weapon):
     def __init__(self):
-        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time=1, damage_close=[1, 10], damage_medium='10d5', damage_long=False, crit_chance=[1, 50], crit_multiplier=2, last_damage_total = 0, active_effect=False, description='A scatter gun.')
-    crit_chance = randint(1, 50)
-    crit_trigger = 47
+        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, trigger_pulls=10, reload_time=1, damage_close=[1, 10], damage_medium='10d5', damage_long=False, crit_chance=[1, 50], crit_multiplier=2, crit_offset=47, last_damage_total = 0, active_effect=False, description='A scatter gun.')
+        
+    def attack_close(self):
+        return super().attack_close()
+    
     def shoot_close(self):
         
         damage_rolls = [] # Initializes an array

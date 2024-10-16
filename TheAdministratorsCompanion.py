@@ -56,7 +56,7 @@ def weapons_menu():
         # While usr_input doesnt match valid_weapons_input then loop through these things
         match usr_input.lower():
             case 'scattergun close':
-                print(weapons_guns.ScatterGun().shoot_close())
+                print(weapons_guns.ScatterGun().attack_close())
             case 'scattergun med':
                 weapons_guns.ScatterGun().shoot_medium()
             case 'pistol close':
