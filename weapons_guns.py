@@ -63,7 +63,7 @@ class Weapon:
         else:
             return print(f"Rolls: {self.damage_rolled} | Damage Total: {self.damage_total}")    
 
-class Launcher(Weapon):
+class Launcher():
     def __init__(self, name, current_magazine, magazine_size, max_magazines, reload_time, possible_damage,crit_chance, crit_multiplier, crit_offset, last_damage_total, active_effect, description):
         self.name = name
         self.current_magazine = current_magazine
@@ -244,7 +244,7 @@ class Gadget(Weapon):
 
 class ScatterGun(Weapon):
     def __init__(self):
-        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, trigger_pulls=10, reload_time=1, damage_close=[1, 10], damage_medium=[1, 10], damage_long=False, crit_chance=[1, 50], crit_multiplier=3, crit_offset=47, last_damage_total = 0, range_penalty=4, active_effect=False, description='A scatter gun.')
+        super().__init__(name='Scatter Gun', current_magazine=6, magazine_size=6, max_magazines=5, trigger_pulls=10, reload_time=1, damage_close=[1, 10], damage_medium=[1, 10], damage_long=False, crit_chance=[1, 50], crit_multiplier=3, crit_offset=47, last_damage_total=[], range_penalty=4, active_effect=False, description='A scatter gun.')
         
     def attack_close(self):
         return super().attack_close()
@@ -256,7 +256,7 @@ class ScatterGun(Weapon):
         
 class Pistol(Weapon):
     def __init__(self):
-        super().__init__(name='Pistol', current_magazine=12, magazine_size=12, max_magazines=3, reload_time=1, trigger_pulls=10,  damage_close=[1, 3], damage_medium=[1, 3], damage_long=[1, 3], crit_chance=[1, 50], crit_multiplier=2, crit_offset=40, active_effect=False, range_penalty=2, description='A pistol.')
+        super().__init__(name='Pistol', current_magazine=12, magazine_size=12, max_magazines=3, reload_time=1, trigger_pulls=10,  damage_close=[1, 3], damage_medium=[1, 3], damage_long=[1, 3], crit_chance=[1, 50], crit_multiplier=2, crit_offset=40, active_effect=False, range_penalty=2, last_damage_total=[], description='A pistol.')
         
     def attack_close(self):
         return super().attack_close()
@@ -269,14 +269,14 @@ class Pistol(Weapon):
     
 class RocketLauncher(Launcher):
     def __init__(self):
-        super().__init__(name='Rocket Launcher', current_magazine=4, magazine_size=4, max_magazines=5, reload_time=1, possible_damage=[112, 56, 28, 0], crit_chance=[1, 12], crit_multiplier=2, crit_offset=11, active_effect='"\n-Enemies and the user within 10 ft of the target take half damage\n-Can fire from distance at any target. Must roll d4 to determine accuracy\n-When firing at his own feet as an attack, he deals 56 self inflicted damage and 28 dmg to enemies within 10 ft\n-Soldier can choose to fire a tile to deal 28 dmg in a 3x3 square"', description='A Rocket Launcher.')
+        super().__init__(name='Rocket Launcher', current_magazine=4, magazine_size=4, max_magazines=5, reload_time=1, possible_damage=[112, 56, 28, 0], crit_chance=[1, 12], crit_multiplier=2, last_damage_total=[], crit_offset=11, active_effect='"\n-Enemies and the user within 10 ft of the target take half damage\n-Can fire from distance at any target. Must roll d4 to determine accuracy\n-When firing at his own feet as an attack, he deals 56 self inflicted damage and 28 dmg to enemies within 10 ft\n-Soldier can choose to fire a tile to deal 28 dmg in a 3x3 square"', description='A Rocket Launcher.')
     
     def shoot_rocket(self):
         return super().shoot_rocket()
                 
 class Shotgun(Weapon):
     def __init__(self):
-        super().__init__(name='Shotgun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time='3, bullets', trigger_pulls=4, damage_close=[1, 10], damage_medium=[1, 10], damage_long=False, crit_chance=[1,45], crit_multiplier=3, crit_offset=42, active_effect=False, range_penalty=2, description='A shotgun.')
+        super().__init__(name='Shotgun', current_magazine=6, magazine_size=6, max_magazines=5, reload_time='3, bullets', trigger_pulls=4, damage_close=[1, 10], damage_medium=[1, 10], damage_long=False, crit_chance=[1,45], crit_multiplier=3, crit_offset=42, active_effect=False, range_penalty=2, last_damage_total=[], description='A shotgun.')
         
     def attack_close(self):
         return super().attack_close()
@@ -301,7 +301,7 @@ class Flamethrower(Weapon):
     
 class GrenadeLauncher(Launcher):
     def __init__(self):
-        super().__init__(name='Grenade Launcher', current_magazine=4, magazine_size=4, max_magazines='16 pills', reload_time='2 pills per turn', possible_damage=[100, 50, 25, 0], crit_chance=[1, 12], crit_multiplier=2, crit_offset=11, active_effect='-Enemies and the user within 10 ft of the target take half damage\n-Can fire from any distance at any target. Must roll d4 to determine accuracy\n-Demoman can bounce the pills around corners and over cliffs', description='A grenade launcher.')
+        super().__init__(name='Grenade Launcher', current_magazine=4, magazine_size=4, max_magazines='16 pills', reload_time='2 pills per turn', possible_damage=[100, 50, 25, 0], crit_chance=[1, 12], crit_multiplier=2, crit_offset=11, active_effect='-Enemies and the user within 10 ft of the target take half damage\n-Can fire from any distance at any target. Must roll d4 to determine accuracy\n-Demoman can bounce the pills around corners and over cliffs', last_damage_total=[], description='A grenade launcher.')
         
     def shoot_pill(self):
         return super().shoot_pill()
@@ -315,7 +315,7 @@ class StickyBombLauncher(Launcher):
     
 class Minigun(Weapon):
     def __init__(self):
-        super().__init__(name='Minigun', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', trigger_pulls=50, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1,125], crit_multiplier=2, crit_offset=100, active_effect="-Roll 50d2 for # of bullets that hit\n", range_penalty=2, description='A minigun.')
+        super().__init__(name='Minigun', current_magazine=200, magazine_size=200, max_magazines='N/A', reload_time='N/A', trigger_pulls=50, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1,125], crit_multiplier=2, crit_offset=100, active_effect="-Roll 50d2 for # of bullets that hit\n", range_penalty=2, last_damage_total=[], description='A minigun.')
         
     def attack_close(self):
         return super().attack_close()
@@ -355,7 +355,7 @@ class SentryLevel3(Gadget):
    
 class SyringeGun(Weapon):
     def __init__(self):
-        super().__init__(name='Syringe gun', current_magazine=45, magazine_size=45, max_magazines='5 magazines (200 syringes)', reload_time='1', trigger_pulls=15, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1, 25], crit_multiplier=3, crit_offset=20, active_effect="", range_penalty=2, description='A syringe gun.')
+        super().__init__(name='Syringe gun', current_magazine=45, magazine_size=45, max_magazines='5 magazines (200 syringes)', reload_time='1', trigger_pulls=15, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1, 25], crit_multiplier=3, crit_offset=20, active_effect="", range_penalty=2, last_damage_total=[], description='A syringe gun.')
         
     def attack_close(self):
         return super().attack_close()
@@ -377,12 +377,10 @@ class SniperRifle(Launcher):
     
     def sniper_charged_attack(self):
         return super().sniper_charged_attack()
-    
-
 
 class Revolver(Weapon):
     def __init__(self):
-        super().__init__(name='Revolver', current_magazine=6, magazine_size=6, max_magazines=4, reload_time=1, trigger_pulls=3, damage_close=[1, 25], damage_medium=[1, 15], damage_long=[1, 7], crit_chance=[1, 6], crit_multiplier=2, crit_offset=5, active_effect=False, range_penalty=2, description='A revolver.')
+        super().__init__(name='Revolver', current_magazine=6, magazine_size=6, max_magazines=4, reload_time=1, trigger_pulls=3, damage_close=[1, 25], damage_medium=[1, 15], damage_long=[1, 7], crit_chance=[1, 6], crit_multiplier=2, crit_offset=5, active_effect=False, range_penalty=2, last_damage_total=[], description='A revolver.')
         
     def attack_close(self):
         return super().attack_close()
@@ -395,7 +393,7 @@ class Revolver(Weapon):
         
 class SMG(Weapon):
     def __init__(self):
-        super().__init__(name='SMG', current_magazine=30, magazine_size=30, max_magazines=3, reload_time=1, trigger_pulls=15, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1, 30], crit_multiplier=2.5, crit_offset=28, active_effect=False, range_penalty=2, description='An SMG.')
+        super().__init__(name='SMG', current_magazine=30, magazine_size=30, max_magazines=3, reload_time=1, trigger_pulls=15, damage_close=[1, 2], damage_medium=[1, 2], damage_long=False, crit_chance=[1, 30], crit_multiplier=2.5, crit_offset=28, active_effect=False, range_penalty=2, last_damage_total=[], description='An SMG.')
         
     def attack_close(self):
         return super().attack_close()
