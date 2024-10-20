@@ -58,13 +58,13 @@ def weapons_menu():
             case 'scattergun close':
                 print(weapons_guns.ScatterGun().attack_close())
             case 'scattergun med':
-                weapons_guns.ScatterGun().shoot_medium()
+                weapons_guns.ScatterGun().attack_mid
             case 'pistol close':
-                weapons_guns.Pistol().shoot_close()
+                weapons_guns.Pistol().attack_close()
             case 'pistol med':
-                weapons_guns.Pistol().shoot_medium()
+                weapons_guns.Pistol().attack_mid
             case 'pistol far':
-                weapons_guns.Pistol().shoot_long()
+                weapons_guns.Pistol().attack_far
             case 'rocket launcher' | 'rocket':
                 weapons_guns.RocketLauncher().shoot_rocket()
             case 'shotgun close':
