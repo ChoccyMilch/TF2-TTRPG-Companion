@@ -68,9 +68,9 @@ def weapons_menu():
             case 'rocket launcher' | 'rocket':
                 weapons_guns.RocketLauncher().shoot_rocket()
             case 'shotgun close':
-                weapons_guns.Shotgun().shoot_close()
+                weapons_guns.Shotgun().attack_close()
             case 'shotgun med':
-                weapons_guns.Shotgun().shoot_medium()
+                weapons_guns.Shotgun().attack_mid()
             case 'flamethrower':
                 weapons_guns.Flamethrower().shoot_flamethrower()
             case'grenade launcher' | 'grenade':
@@ -78,63 +78,64 @@ def weapons_menu():
             case 'sticky bomb':
                 weapons_guns.StickyBombLauncher().detonate_sticky()
             case 'minigun close':
-                weapons_guns.Minigun().shoot_close()
+                weapons_guns.Minigun().attack_close()
             case 'minigun med':
-                weapons_guns.Minigun().shoot_medium()
+                weapons_guns.Minigun().attack_mid()
             case 'sentry 1 close':
-                weapons_guns.SentryLevel1().shoot_sentry_lvl1_close()
+                weapons_guns.SentryLevel1().attack_sentry_lvl1_close()
             case 'sentry 1 med':
-                weapons_guns.SentryLevel1().shoot_sentry_lvl1_med()
+                weapons_guns.SentryLevel1().attack_sentry_lvl1_med()
             case 'sentry 2 close':
-                weapons_guns.SentryLevel2().shoot_sentry_lvl2_close()
+                weapons_guns.SentryLevel2().attack_sentry_lvl2_close()
             case 'sentry 2 med':
-                weapons_guns.SentryLevel2().shoot_sentry_lvl2_med()
+                weapons_guns.SentryLevel2().attack_sentry_lvl2_med()
             case 'sentry 3 close':
-                weapons_guns.SentryLevel3().shoot_sentry_lvl3_close()
+                weapons_guns.SentryLevel3().attack_sentry_lvl3_close()
             case 'sentry 3 med':
-                weapons_guns.SentryLevel3().shoot_sentry_lvl3_med()
+                weapons_guns.SentryLevel3().attack_sentry_lvl3_med()
             case 'syringe gun close' | 'syringe close':
-                weapons_guns.SyringeGun().shoot_close()
+                weapons_guns.SyringeGun().attack_close()
             case 'syringe gun med' | 'syringe med':
-                weapons_guns.SyringeGun().shoot_medium()
+                weapons_guns.SyringeGun().attack_mid()
             case 'sniper hipfire':
-                weapons_guns.SniperRifle().shoot_super_close()
+                weapons_guns.SniperRifle().sniper_attack_super_close
             case 'sniper close':
-                weapons_guns.SniperRifle().shoot_close()
+                weapons_guns.SniperRifle().snipe_close()
             case 'sniper med':
-                weapons_guns.SniperRifle().shoot_medium()
+                weapons_guns.SniperRifle().snipe_medium()
             case 'sniper charged':
-                weapons_guns.SniperRifle().shoot_sniper_charged()
+                weapons_guns.SniperRifle().sniper_charged_attack()
             case 'smg close':
-                weapons_guns.SMG().shoot_close()
+                weapons_guns.SMG().attack_close()
             case 'smg med':
-                weapons_guns.SMG().shoot_medium()
+                weapons_guns.SMG().attack_mid()
             case 'revolver close':
-                weapons_guns.Revolver().shoot_close()
+                weapons_guns.Revolver().attack_close()
             case 'revolver med':
-                weapons_guns.Revolver().shoot_medium()
+                weapons_guns.Revolver().attack_mid()
             case 'revolver far':
-                weapons_guns.Revolver().shoot_long()
+                weapons_guns.Revolver().attack_far()
             case 'bat':
-                weapons_melee.Bat().bat_hit()
+                weapons_melee.Bat().melee_attack_hit()
             case 'shovel':
-                weapons_melee.Shovel().shovel_hit()
+                weapons_melee.Shovel().melee_attack_hit()
             case 'fire axe' | 'fireaxe':
-                weapons_melee.FireAxe().fire_axe_hit()
+                weapons_melee.FireAxe().melee_attack_hit()
             case 'bottle':
-                weapons_melee.Bottle().bottle_hit()
+                weapons_melee.Bottle().melee_attack_hit()
             case 'bottle reset':
-                weapons_melee.Bottle().is_broken_reset()
+                pass
+                # weapons_melee.Bottle().is_broken_reset()
             case 'fists':
-                weapons_melee.Fists().fists_hit()
+                weapons_melee.Fists().melee_attack_hit()
             case 'wrench':
-                weapons_melee.Wrench().wrench_hit()
+                weapons_melee.Wrench().melee_attack_hit()
             case 'bonesaw':
-                weapons_melee.Bonesaw().bonesaw_hit()
+                weapons_melee.Bonesaw().melee_attack_hit()
             case 'kukiri':
-                weapons_melee.Kukiri().kukiri_hit()
+                weapons_melee.Kukiri().melee_attack_hit()
             case 'knife':
-                weapons_melee.Knife().knife_hit()
+                weapons_melee.Knife().melee_attack_hit()
             case 'back':
                 general_menu()
                 return False
